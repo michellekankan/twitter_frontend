@@ -1,0 +1,21 @@
+{
+  "extends": "airbnb",
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    }
+  },
+  "rules": { //0-不要用 1-啟用
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+    "react/react-in-jsx-scope": 0,
+    "react/function-component-definition": 0
+  },
+  "env": {
+    "browser": true
+  }
+}
+
+
+//Ch4-2 JSON結構的文件
