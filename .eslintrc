@@ -10,7 +10,8 @@
   "rules": { //0-不要用 1-啟用
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
     "react/react-in-jsx-scope": 0, 
-    "react/function-component-definition": 0
+    "react/function-component-definition": 0,
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": false, "optionalDependencies": false, "peerDependencies": false }]
   },
   "env": {
     "browser": true
