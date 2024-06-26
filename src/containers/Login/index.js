@@ -6,7 +6,7 @@ import './index.css';
 
 const initialValues = {
   username: 'michelle',
-  password: '123',
+  password: '12345',
 };
 
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
   const onSubmit = async () => {
     const values = form.getFieldsValue();
     const res = await loginService(values.username, values.password);
-    if (res && res.length > 0) {
+    if (res && res.length > 0) { // 避免寫if-else
       Dialog.alert({
         content: 'login successfully',
       });
