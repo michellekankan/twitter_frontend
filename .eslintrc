@@ -1,0 +1,26 @@
+{
+  "extends": "airbnb", //extends繼承至誰的規範,這是airbnb公司出的配置文件（eslint-config-airbnb縮寫為airbnb）
+  "parser": "@babel/eslint-parser", //解析器
+  "parserOptions": { //解析器的配置
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    }
+  },
+  "rules": { //0-不要用 1-啟用
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+    "react/react-in-jsx-scope": 0, 
+    "react/function-component-definition": 0,
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": false, "optionalDependencies": false, "peerDependencies": false }]
+  },
+  "env": {
+    "browser": true
+  }
+}
+
+/*
+Ch4-2 
+eslint 規範寫代碼基本的要求
+eslintrc JSON結構的配置文件
+*/
+

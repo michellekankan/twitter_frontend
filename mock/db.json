@@ -1,0 +1,17 @@
+{
+  "user": [ 
+    {
+      "username": "michelle",
+      "password": "12345",
+      "age": "23",
+      "address": "1129 Prescott"
+    },
+    {
+      "username": "jack",
+      "password": "12345",
+      "age": "44",
+      "address": "11 Prescott"
+    }
+
+  ]
+}
