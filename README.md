@@ -15,3 +15,6 @@ service: const getUser = (params) => get('/user', params).then((res) => {
 
 ## A backend web service 
 using json-server
+
+## Twitter Frontend Page Template
+You can directly follow the screenshots of the Twitter pages in the doc directory to develop the frontend UI pages.
