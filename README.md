@@ -27,3 +27,7 @@ You can directly follow the screenshots of the Twitter pages in the doc director
 - css 無法編寫嵌套
 - scss 寫簡單的嵌套 -> css
 - css module 不用關係命名空間, 不會出現會被覆蓋的樣式
+
+## 工程畫的配置信息
+- craco.config.js : 配置webpack文件的快捷方式
+- jsconfig.json : 給vscode使用的js相關配置文件 

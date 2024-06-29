@@ -1,9 +1,10 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable max-len */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Button, Input } from 'antd-mobile';
 
-import Header from '../../components/Header';
-import DatePickerInput from '../../components/DatePickerInput';
+import Header from '@components/Header';
+import DatePickerInput from '@components/DatePickerInput';
 import style from './index.module.css';
 /**
  *  register page
