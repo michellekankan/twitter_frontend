@@ -1,0 +1,21 @@
+@value tBlue from '../../containers/Register/index.module.css';
+
+.birthdayInput {
+  composes: input from '../../common.module.css';
+  margin-top: 10px;
+}
+
+.birthdayTitleItem {
+  color: tBlue;
+}
+
+.birthdayPlaceholder {
+  height: 30px;
+  line-height: 30px;
+  font-size: 15px;
+}
+
+.datepickerIcon {
+  height: 20px;
+  float: right;
+}

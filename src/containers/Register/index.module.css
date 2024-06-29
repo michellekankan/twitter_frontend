@@ -1,0 +1,47 @@
+@value tBlue #1d9bf0;
+@value tGray #868a8c;
+
+
+.form {
+  margin: 0 30px;
+}
+
+.formTitle {
+  font-size: 25px;
+  font-weight: 700;
+  height: 68px;
+  line-height: 68px;
+}
+
+.input {
+  composes: input from '../../common.module.css';
+}
+
+.changeTypeButton {
+  color: tBlue;
+}
+
+.birthdayTitle {
+  font-size: 14px;
+  color: #000000;
+  margin-top: 25px;
+  font-weight: 700;
+}
+
+.footer {
+  position: fixed;
+  text-align: center;
+  bottom: 20px;
+  width: 100%;
+}
+
+.footerButton {
+  margin: 0 auto;
+  border-radius: 50px;
+  background-color: tGray;
+  color: #ffffff;
+  font-size: 16px;
+  width: 80%;
+  height: 40px;
+}
+
