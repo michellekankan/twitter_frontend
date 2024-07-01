@@ -12,6 +12,8 @@
     "craco-alias": "^3.0.1",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.29.1",
+    "moment": "^2.30.1",
+    "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.3.1",

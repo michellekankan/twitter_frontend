@@ -22,6 +22,7 @@ You can directly follow the screenshots of the Twitter pages in the doc director
 ## React 五步法
 - 第一步: 將設計好的UI劃分劃分為組建層級
 - 第二步: 用React創建一個靜態版本
+- 第三步: 確定UI state的最小(且完整)表示
 
 ## style 技術選擇
 - css 無法編寫嵌套

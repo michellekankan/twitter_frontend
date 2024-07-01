@@ -1,10 +1,30 @@
 @value tBlue #1d9bf0;
 @value tGray #868a8c;
 
+.common {
+  composes: input from '../../common.module.css';
+}
 
 .form {
   margin: 0 30px;
 }
+
+.formContainer {
+  
+  :global(.adm-list-body) {
+    background:  none;
+    border: none;
+  }
+
+  :global(.adm-form-item) {
+    background: none;
+  }
+
+  :global(.adm-list-item-content) {
+    border: none;
+  }
+}
+
 
 .formTitle {
   font-size: 25px;

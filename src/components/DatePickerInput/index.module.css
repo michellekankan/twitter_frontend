@@ -1,8 +1,9 @@
-@value tBlue from '../../containers/Register/index.module.css';
+@value tBlue from '../../containers/Register/index.module.scss';
 
 .birthdayInput {
   composes: input from '../../common.module.css';
   margin-top: 10px;
+  touch-action: none;
 }
 
 .birthdayTitleItem {
