@@ -1,13 +1,14 @@
-@value tBlue from '../../containers/Register/index.module.scss';
+@import '../../common.module.scss';
 
 .birthdayInput {
-  composes: input from '../../common.module.css';
+  composes: input from '../../common.module.scss';
   margin-top: 10px;
+  height: 60px;
   touch-action: none;
 }
 
 .birthdayTitleItem {
-  color: tBlue;
+  color: $tBlue;
 }
 
 .birthdayPlaceholder {

@@ -4,7 +4,7 @@ import { DatePicker } from 'antd-mobile';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import datepickerIcon from '../../assets/datepicker-icon.svg';
-import style from './index.module.css';
+import style from './index.module.scss';
 
 /**
  * 出生日期選擇器
@@ -28,7 +28,7 @@ const DatePickerInput = ({
           setVisible(false);
         }}
         onConfirm={(val) => {
-          onChange(val);
+          onChange(moment(val).format('YYYYMMDD'));
         }}
       />
       <div className={style.birthdayInput} onClick={onClickDatePicker}>

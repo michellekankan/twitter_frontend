@@ -1,7 +1,7 @@
 import { CloseOutline } from 'antd-mobile-icons';
 
 import logo from '../../assets/twitter-logo.svg';
-import style from './index.module.css';
+import style from './index.module.scss';
 
 export default () => (
   <div className={style.header}>

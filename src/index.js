@@ -4,7 +4,7 @@ import './index.css';
 import Register from './containers/Register';
 // import Login from './containers/Login';
 
-import { startVconsole } from './utils/index';
+// import { startVconsole } from './utils/index';
 
 // document.getElementById('root').appendChild(<div>dsdsds</div>);
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,4 +16,4 @@ root.render(
 );
 
 // 啟動vconsole 用於手機上
-startVconsole();
+// startVconsole();

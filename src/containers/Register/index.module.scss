@@ -1,8 +1,7 @@
-@value tBlue #1d9bf0;
-@value tGray #868a8c;
+@import '../../common.module.scss';
 
 .common {
-  composes: input from '../../common.module.css';
+  composes: input from '../../common.module.scss';
 }
 
 .form {
@@ -18,10 +17,14 @@
 
   :global(.adm-form-item) {
     background: none;
+    padding: 0;
+    margin: 0;
   }
 
   :global(.adm-list-item-content) {
     border: none;
+    padding: 0;
+    margin: 0;
   }
 }
 
@@ -34,11 +37,11 @@
 }
 
 .input {
-  composes: input from '../../common.module.css';
+  composes: common;
 }
 
 .changeTypeButton {
-  color: tBlue;
+  color: $tBlue;
 }
 
 .birthdayTitle {
@@ -58,7 +61,7 @@
 .footerButton {
   margin: 0 auto;
   border-radius: 50px;
-  background-color: tGray;
+  background-color: $tGray;
   color: #ffffff;
   font-size: 16px;
   width: 80%;
