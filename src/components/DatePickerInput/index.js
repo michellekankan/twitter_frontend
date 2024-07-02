@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable import/no-extraneous-dependencies */
 import { useState } from 'react';
 import { DatePicker } from 'antd-mobile';
@@ -10,8 +11,8 @@ import style from './index.module.scss';
  * 出生日期選擇器
  */
 const DatePickerInput = ({
-  value,
-  onChange,
+  value = '',
+  onChange = () => {},
 }) => {
   const [visible, setVisible] = useState(false);
 
@@ -44,8 +45,12 @@ const DatePickerInput = ({
 };
 
 DatePickerInput.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
+// DatePickerInput.defaultProps = {
+//   value: '',
+//   onChange: () => {},
+// };
 export default DatePickerInput;
