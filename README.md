@@ -23,6 +23,8 @@ You can directly follow the screenshots of the Twitter pages in the doc director
 - 第一步: 將設計好的UI劃分劃分為組建層級
 - 第二步: 用React創建一個靜態版本
 - 第三步: 確定UI state的最小(且完整)表示
+- 第四步: 確定 state放置的位置
+- 第五步: 添加反向數據流
 
 ## style 技術選擇
 - css 無法編寫嵌套
