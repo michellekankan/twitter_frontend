@@ -39,13 +39,13 @@ const Register = () => {
       });
       console.log(res);
       if (res.success) {
-        Toast.show('Login successfully'); // 類似js裡的alert
+        Toast.show('Register successfully'); // 類似js裡的alert
         return;
       }
-      Toast.show('Fail to login');
+      Toast.show('Fail to Tegister');
     } catch (error) {
       console.error(error);
-      Toast.show('Fail to login');
+      Toast.show('Fail to Register');
     }
   };
 

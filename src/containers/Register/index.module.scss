@@ -9,31 +9,12 @@
 }
 
 .formContainer {
-  
-  :global(.adm-list-body) {
-    background:  none;
-    border: none;
-  }
-
-  :global(.adm-form-item) {
-    background: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  :global(.adm-list-item-content) {
-    border: none;
-    padding: 0;
-    margin: 0;
-  }
+  composes: formContainer from '../../common.module.scss';
 }
 
 
 .formTitle {
-  font-size: 25px;
-  font-weight: 700;
-  height: 68px;
-  line-height: 68px;
+  composes: formContainer from '../../common.module.scss';
 }
 
 .input {

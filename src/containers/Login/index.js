@@ -1,52 +1,74 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import {
-  Button, Form, Input, Dialog,
+  Button, Form, Dialog,
 } from 'antd-mobile';
-import { loginService } from '../../services/login';
-import './index.css';
+import Header from '@components/Header';
+import TInput from '@components/TInput';
+import { login } from '../../services/login';
+import style from './index.module.scss';
 
-const initialValues = {
-  username: 'michelle',
-  password: '12345',
-};
-
+/**
+ *登錄頁面
+ */
 const Login = () => {
   const [form] = Form.useForm();
 
   const onSubmit = async () => {
-    const values = form.getFieldsValue();
-    const res = await loginService(values.username, values.password);
-    if (res && res.length > 0) { // 避免寫if-else
-      Dialog.alert({
-        content: 'login successfully',
-      });
-      return;
+    try {
+      const values = await form.validateFields();
+      if (values) {
+        const res = await login(values.username, values.password);
+        console.log(res);
+        if (res.success && res.data.length > 0) { // 避免寫if-else
+          Dialog.alert({
+            content: 'login successfully',
+          });
+          return;
+        }
+        Dialog.alert({
+          content: 'failed to login',
+        });
+      }
+    } catch (error) {
+      console.log(error);
     }
-    Dialog.alert({
-      content: 'failed to login',
-    });
   };
+
   return (
-    <div className="login">
-      <Form
-        form={form}
-        layout="horizontal"
-        mode="card"
-        initialValues={initialValues}
-        footer={(
-          <Button block color="primary" onClick={onSubmit} size="large">
-            Login
-          </Button>
-      )}
-      >
-        <Form.Item label="Username" name="username">
-          <Input placeholder="Enter username" clearable />
-        </Form.Item>
-        <Form.Item label="Password" name="password">
-          <Input placeholder="Enter password" clearable type="password" />
-        </Form.Item>
-      </Form>
-    </div>
+    <>
+      <Header />
+      <div className={style.login}>
+        <div className={style.formTitle}>Login Twitter</div>
+        <Form
+          form={form}
+          className={style.formContainer}
+        >
+          <Form.Item
+            name="username"
+            rules={[{
+              required: true,
+              message: 'Please enter your username',
+            }]}
+          >
+            <TInput label="Name" />
+          </Form.Item>
+          <Form.Item
+            name="password"
+            rules={[{
+              required: true,
+              message: 'Please enter your password',
+            }]}
+          >
+            <TInput label="Password" type="password" />
+          </Form.Item>
+          <Button className={style.footerButton} onClick={onSubmit}>Next</Button>
+        </Form>
+        <div className={style.goToRegister}>
+          do not have an account?
+          <a href="/" target="_blank">sign up</a>
+        </div>
+      </div>
+    </>
   );
 };
 
