@@ -1,4 +1,8 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
+import { Toast } from 'antd-mobile';
+
+// eslint-disable-
 
 // https://google.com/user
 const domain = 'http://localhost:3333';
@@ -9,7 +13,9 @@ axios.interceptors.request.use((config) => ({
 }));
 
 // 對返回的結果做攔截,主要有兩部分: 數據轉換 錯誤處理
-axios.interceptors.response.use((response) => response.data, (err) => Promise.reject(err));
+axios.interceptors.response.use((response) => response.data, () => {
+  Toast.show('web server error'); // 沒有啟動webserver就會彈跳出這個警訊
+});
 
 // get 獲取服務器資源
 export const get = (url) => axios.get(url);
