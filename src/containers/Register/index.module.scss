@@ -58,7 +58,7 @@
   width: 100%;
 }
 
-.footerButton {
+.footerButtonDisabled {
   margin: 0 auto;
   border-radius: 50px;
   background-color: $tGray;
@@ -68,3 +68,34 @@
   height: 40px;
 }
 
+.footerButton {
+  composes: footerButtonDisabled;
+  background-color: black;
+}
+
+.showLabel {
+  font-size: 18px;
+  height: 40px;
+  line-height: 40px;
+  :global(span) {
+    color: $tGray;
+    margin-left: 5px;
+  }
+}
+
+.showLabelContainer {
+  border: solid 1px $tGrayWhite;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.label {
+  font-size: 18px;
+  margin: 30px 0 10px 0;
+}
+
+.showTip {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}

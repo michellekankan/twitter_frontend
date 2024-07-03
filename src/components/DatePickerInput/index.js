@@ -23,7 +23,7 @@ const DatePickerInput = ({
   return (
     <>
       <DatePicker
-        title="时间选择"
+        title="choose date"
         visible={visible}
         onClose={() => {
           setVisible(false);

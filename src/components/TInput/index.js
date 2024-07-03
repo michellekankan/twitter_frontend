@@ -1,20 +1,28 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable import/no-extraneous-dependencies */
 import { Input } from 'antd-mobile';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import style from './index.module.scss';
 
 /**
  * 富交互的Input
  */
 const TInput = ({
-  label,
-  value,
-  length,
-  onChange,
+  label = '',
+  value = undefined,
+  length = undefined,
+  onChange = () => {},
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hide, setHide] = useState(false);
+
+  useEffect(() => {
+    if (value) {
+      setIsFocused(true);
+      setHide(true);
+    }
+  }, []);
 
   const onFocus = () => {
     setIsFocused(true);
@@ -41,7 +49,7 @@ const TInput = ({
         {label}
         {hide && length && (
         <span className={style.labelRight}>
-          {value.length}
+          {value?.length}
           /
           {length}
         </span>
@@ -59,10 +67,10 @@ const TInput = ({
 };
 
 TInput.propTypes = {
-  label: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  length: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
+  label: PropTypes.string,
+  value: PropTypes.string,
+  length: PropTypes.number,
+  onChange: PropTypes.func,
 };
 
 export default TInput;
