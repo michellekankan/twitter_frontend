@@ -3,7 +3,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useState } from 'react';
 import { Toast } from 'antd-mobile';
-import Header from '@components/Header';
 import { registerUser } from '@services/register';
 import Show from '@components/Show';
 import OneStep from './components/OneStep';
@@ -22,9 +21,9 @@ const Register = () => {
   const [step, setStep] = useState(STEP.ONE);
   const [userInfo, setUserInfo] = useState({});
 
-  const onClickClose = () => {
-    setStep(STEP.ONE);
-  };
+  // const onClickClose = () => {
+  //   setStep(STEP.ONE);
+  // };
 
   const gotoNextStepHandler = (data) => {
     setUserInfo(data);
@@ -51,7 +50,6 @@ const Register = () => {
 
   return (
     <div>
-      <Header onClickClose={onClickClose} />
       <Show visible={step === STEP.ONE}>
         <OneStep gotoNextStepHandler={gotoNextStepHandler} />
       </Show>
