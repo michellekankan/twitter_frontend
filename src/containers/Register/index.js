@@ -1,10 +1,13 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable max-len */
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Toast } from 'antd-mobile';
+import { useNavigate } from 'react-router-dom';
 import { registerUser } from '@services/register';
 import Show from '@components/Show';
+import { useAppContext } from '@utils/context';
 import OneStep from './components/OneStep';
 import TwoStep from './components/TwoStep';
 
@@ -21,9 +24,21 @@ const Register = () => {
   const [step, setStep] = useState(STEP.ONE);
   const [userInfo, setUserInfo] = useState({});
 
-  // const onClickClose = () => {
-  //   setStep(STEP.ONE);
-  // };
+  const [, setStore] = useAppContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (step === STEP.ONE) {
+      setStore({
+        closeHeaderHandler: () => navigate('/login'),
+      });
+    }
+    if (step === STEP.TWO) {
+      setStore({
+        closeHeaderHandler: () => setStep(STEP.ONE),
+      });
+    }
+  }, [step]);
 
   const gotoNextStepHandler = (data) => {
     setUserInfo(data);
@@ -53,8 +68,8 @@ const Register = () => {
       <Show visible={step === STEP.ONE}>
         <OneStep gotoNextStepHandler={gotoNextStepHandler} />
       </Show>
-      <Show visible={step === STEP.TWO}>
-        <TwoStep userInfo={userInfo} confirmRegisterHandler={confirmRegisterHandler} />
+      <Show visible={step === STEP.TWO} isMount>
+        <TwoStep userInfo={userInfo} gotoOneStepHandler={() => setStep(STEP.ONE)} confirmRegisterHandler={confirmRegisterHandler} />
       </Show>
     </div>
   );

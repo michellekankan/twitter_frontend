@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import {
   Button, Form, Dialog,
@@ -5,6 +6,7 @@ import {
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Link } from 'react-router-dom';
 import TInput from '@components/TInput';
+import { useAppContext } from '@utils/context';
 import { login } from '../../services/login';
 import style from './index.module.scss';
 
@@ -13,6 +15,14 @@ import style from './index.module.scss';
  */
 const Login = () => {
   const [form] = Form.useForm();
+
+  const [, setStore] = useAppContext();
+
+  useEffect(() => {
+    setStore({
+      closeHeaderHandler: null,
+    });
+  }, []);
 
   const onSubmit = async () => {
     try {
