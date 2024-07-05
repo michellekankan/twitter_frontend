@@ -2,7 +2,8 @@
 import {
   Button, Form, Dialog,
 } from 'antd-mobile';
-import Header from '@components/Header';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Link } from 'react-router-dom';
 import TInput from '@components/TInput';
 import { login } from '../../services/login';
 import style from './index.module.scss';
@@ -35,40 +36,37 @@ const Login = () => {
   };
 
   return (
-    <>
-      <Header />
-      <div className={style.login}>
-        <div className={style.formTitle}>Login Twitter</div>
-        <Form
-          form={form}
-          className={style.formContainer}
+    <div className={style.login}>
+      <div className={style.formTitle}>Login Twitter</div>
+      <Form
+        form={form}
+        className={style.formContainer}
+      >
+        <Form.Item
+          name="username"
+          rules={[{
+            required: true,
+            message: 'Please enter your username',
+          }]}
         >
-          <Form.Item
-            name="username"
-            rules={[{
-              required: true,
-              message: 'Please enter your username',
-            }]}
-          >
-            <TInput label="Name" />
-          </Form.Item>
-          <Form.Item
-            name="password"
-            rules={[{
-              required: true,
-              message: 'Please enter your password',
-            }]}
-          >
-            <TInput label="Password" type="password" />
-          </Form.Item>
-          <Button className={style.footerButton} onClick={onSubmit}>Next</Button>
-        </Form>
-        <div className={style.goToRegister}>
-          do not have an account?
-          <a href="/" target="_blank">sign up</a>
-        </div>
+          <TInput label="Name" />
+        </Form.Item>
+        <Form.Item
+          name="password"
+          rules={[{
+            required: true,
+            message: 'Please enter your password',
+          }]}
+        >
+          <TInput label="Password" type="password" />
+        </Form.Item>
+        <Button className={style.footerButton} onClick={onSubmit}>Next</Button>
+      </Form>
+      <div className={style.goToRegister}>
+        do not have an account?
+        <Link to="/register">sign up</Link>
       </div>
-    </>
+    </div>
   );
 };
 
