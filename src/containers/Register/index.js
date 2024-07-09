@@ -1,11 +1,13 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable max-len */
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Toast } from 'antd-mobile';
-import Header from '@components/Header';
+import { useNavigate } from 'react-router-dom';
 import { registerUser } from '@services/register';
 import Show from '@components/Show';
+import { useAppContext } from '@utils/context';
 import OneStep from './components/OneStep';
 import TwoStep from './components/TwoStep';
 
@@ -22,9 +24,21 @@ const Register = () => {
   const [step, setStep] = useState(STEP.ONE);
   const [userInfo, setUserInfo] = useState({});
 
-  const onClickClose = () => {
-    setStep(STEP.ONE);
-  };
+  const [, setStore] = useAppContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (step === STEP.ONE) {
+      setStore({
+        closeHeaderHandler: () => navigate('/login'),
+      });
+    }
+    if (step === STEP.TWO) {
+      setStore({
+        closeHeaderHandler: () => setStep(STEP.ONE),
+      });
+    }
+  }, [step]);
 
   const gotoNextStepHandler = (data) => {
     setUserInfo(data);
@@ -39,24 +53,23 @@ const Register = () => {
       });
       console.log(res);
       if (res.success) {
-        Toast.show('Login successfully'); // 類似js裡的alert
+        Toast.show('Register successfully'); // 類似js裡的alert
         return;
       }
-      Toast.show('Fail to login');
+      Toast.show('Fail to Tegister');
     } catch (error) {
       console.error(error);
-      Toast.show('Fail to login');
+      Toast.show('Fail to Register');
     }
   };
 
   return (
     <div>
-      <Header onClickClose={onClickClose} />
       <Show visible={step === STEP.ONE}>
         <OneStep gotoNextStepHandler={gotoNextStepHandler} />
       </Show>
-      <Show visible={step === STEP.TWO}>
-        <TwoStep userInfo={userInfo} confirmRegisterHandler={confirmRegisterHandler} />
+      <Show visible={step === STEP.TWO} isMount>
+        <TwoStep userInfo={userInfo} gotoOneStepHandler={() => setStep(STEP.ONE)} confirmRegisterHandler={confirmRegisterHandler} />
       </Show>
     </div>
   );

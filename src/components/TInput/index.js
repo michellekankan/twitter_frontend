@@ -13,6 +13,8 @@ const TInput = ({
   value = undefined,
   length = undefined,
   onChange = () => {},
+  ...otherProps
+  // type = 'text', // type也可以這樣表示
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hide, setHide] = useState(false);
@@ -30,8 +32,10 @@ const TInput = ({
   };
 
   const onBlur = () => {
-    if (value.length === 0) {
+    if (!value || value.length === 0) { // !value代表當value是空的時候
       setIsFocused(false);
+      setHide(false);
+      return;
     }
     setHide(false);
   };
@@ -61,6 +65,9 @@ const TInput = ({
         onBlur={onBlur}
         value={value}
         onChange={onChangeHandler}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...otherProps}
+        // type={type} // type也可以這樣表示
       />
     </div>
   );
@@ -71,6 +78,7 @@ TInput.propTypes = {
   value: PropTypes.string,
   length: PropTypes.number,
   onChange: PropTypes.func,
+  // type: PropTypes.string,
 };
 
 export default TInput;
