@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Register from '@containers/Register';
 import Login from '@containers/Login';
 import App from '@containers/App';
+import Tweets from '@containers/Tweets';
 import { CxtProvider } from '@utils/context';
 import './index.css';
 
@@ -20,6 +21,7 @@ root.render(
           <Route path="/" element={<App />}>
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/tweets" element={<Tweets />} />
           </Route>
         </Routes>
       </BrowserRouter>
