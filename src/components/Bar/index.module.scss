@@ -9,6 +9,14 @@
   }
 }
 
+.containerBottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
 .icon {
   height: 15px;
   vertical-align: middle;

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { TabBar } from 'antd-mobile';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import classNames from 'classnames';
 
 import msgSvg from '@assets/comment.svg';
 import likeSvg from '@assets/like.svg';
@@ -42,6 +44,7 @@ const getBars = ({
 * 評論 轉發 喜歡 分享的bar
 */
 const Bar = ({
+  isBottom = false,
   commentsCount,
   likesCount,
 }) => {
@@ -52,7 +55,11 @@ const Bar = ({
   };
 
   return (
-    <div className={style.container}>
+    <div className={classNames({
+      [style.container]: true,
+      [style.containerBottom]: isBottom,
+    })}
+    >
       <TabBar activeKey={activeKey} onChange={onChangeTabItem}>
         {getBars({ commentsCount, likesCount }).map((item) => (
           <TabBar.Item key={item.key} icon={item.icon} />
@@ -65,6 +72,8 @@ const Bar = ({
 Bar.propTypes = {
   commentsCount: PropTypes.number.isRequired,
   likesCount: PropTypes.number.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  isBottom: PropTypes.bool,
 };
 
 export default Bar;
