@@ -1,13 +1,14 @@
-@import '../../common.module.scss';
+@import '../../index.scss';
 .icon {
   height: 20px;
 }
 
 .container {
-  border-top: 1px solid $tGrayWhite;
+  border-top: 1px solid $tBorderColor;
   position: fixed;
   z-index: 1;
   width: 100%;
   bottom: 0;
   left: 0;
+  background-color: rgba(255, 255, 255, 0.95);
 }

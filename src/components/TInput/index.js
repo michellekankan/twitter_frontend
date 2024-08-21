@@ -18,13 +18,12 @@ const TInput = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hide, setHide] = useState(false);
-
   useEffect(() => {
     if (value) {
       setIsFocused(true);
       setHide(true);
     }
-  }, []);
+  }, [value]);
 
   const onFocus = () => {
     setIsFocused(true);

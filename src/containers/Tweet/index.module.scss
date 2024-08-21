@@ -1,0 +1,47 @@
+@import '../../index.scss';
+
+.container {
+  background-color: #fff;
+  border-bottom: solid 1px #eee;
+}
+.contentContainer {
+  padding: 20px;
+  display: inline-block;
+  .header {
+    height: 60px;
+    font-size: 14px;
+    .nickname {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    .username {
+      color: $tFontColor;
+      margin-top: 5px;
+    }
+    .right {
+      float: right;
+      width: calc(100% - 60px);
+    }
+  }
+  .content {
+    font-size: 22px;
+  }
+}
+.avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.photo {
+  padding: 10px 0 0 0;
+}
+.timeline {
+  font-size: 14px;
+  color: $tFontColor;
+  margin: 15px 20px;
+}
+.bar {
+  border-top: 1px solid $tBorderColor;
+  border-bottom: 1px solid $tBorderColor;
+}

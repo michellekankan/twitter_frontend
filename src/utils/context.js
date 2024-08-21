@@ -23,8 +23,16 @@ export const CxtProvider = ({
 }) => {
   const [store, setStore] = useState(defaultStore);
 
+  // st是當前的state, 把他傳進去另外再加上目前的state - v
+  const update = (v) => {
+    setStore((st) => ({
+      ...st,
+      ...v,
+    }));
+  };
+
   const value = useMemo(() => ({
-    store, setStore,
+    store, update,
   }), [store]);
   return (
     <AppContext.Provider value={value}>
@@ -42,7 +50,7 @@ CxtProvider.propTypes = {
  */
 export const useAppContext = () => {
   const cxt = useContext(AppContext);
-  return [cxt.store, cxt.setStore];
+  return [cxt.store, cxt.update];
 };
 
 // 解釋useContext

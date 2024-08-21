@@ -1,6 +1,13 @@
+@import "../../index.scss";
+
 .header {
   height: 50px;
   text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(255,255,255, 0.95);
 }
 
 .closeIcon {
@@ -13,4 +20,25 @@
 .twitterLogo {
   height: 30px;
   margin-top: 10px;
+}
+
+.backHeader {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 50px;
+  position: absolute;
+  left: 60px;
+}
+
+.back {
+  width: 20px;
+  vertical-align: middle;
+  float: left;
+  margin: 15px;
 }

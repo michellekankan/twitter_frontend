@@ -1,10 +1,7 @@
-@import "../../common.module.scss";
+@import "../../index.scss";
 .container {
   height: 200px;
   padding: 10px 5px 0 0;
-  :global(.adm-mask) {
-    background-color: #ccc!important;
-  }
 }
 
 .img {
