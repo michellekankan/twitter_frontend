@@ -1,6 +1,4 @@
-$tBlue: #1d9bf0;
-$tGray: #868a8c;
-$tGrayWhite: #cfd9d3;
+@import "index.scss";
 
 .input {
   border: solid 1px $tGrayWhite;
@@ -35,4 +33,8 @@ $tGrayWhite: #cfd9d3;
   font-weight: 700;
   height: 68px;
   line-height: 68px;
+}
+
+.icon {
+  height: 20px;
 }

@@ -25,7 +25,7 @@ const OneStep = ({
 }) => {
   const [form] = Form.useForm();
   const [formData] = useState({
-    name: '',
+    username: '',
     tel: '',
     email: '',
     birthday: '20230901',

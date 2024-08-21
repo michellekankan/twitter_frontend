@@ -5,8 +5,11 @@ import {
 } from 'antd-mobile';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Link } from 'react-router-dom';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import Cookies from 'js-cookie';
 import TInput from '@components/TInput';
 import { useAppContext } from '@utils/context';
+import { useGoTo } from '@utils/hooks';
 import { login } from '../../services/login';
 import style from './index.module.scss';
 
@@ -15,7 +18,7 @@ import style from './index.module.scss';
  */
 const Login = () => {
   const [form] = Form.useForm();
-
+  const go = useGoTo();
   const [, setStore] = useAppContext();
 
   useEffect(() => {
@@ -34,6 +37,8 @@ const Login = () => {
           Dialog.alert({
             content: 'login successfully',
           });
+          Cookies.set('userId', res.data[0].id);
+          go('tweets');
           return;
         }
         Dialog.alert({
